@@ -1,0 +1,172 @@
+
+
+select * from usuarios
+
+select * from roles
+select * from usuarios_roles
+
+select * from medicos
+  where ativo = false
+
+select * from medicos
+order by id desc
+
+select * from pacientes
+  where ativo = false
+
+select * from consultas
+where status = 'AGENDADA'
+order by id asc
+
+UPDATE consultas
+SET datahora = '2026-02-16 09:00:00'
+WHERE id = 26;
+
+UPDATE consultas
+SET descricaocancelamento = 'A clínica fechará para manutenção'
+WHERE id = 26;
+
+UPDATE consultas
+SET status = 'AGENDADA'
+WHERE id = 26;
+
+
+
+
+
+
+-- 1. Inserir Roles (Garante que existam)
+INSERT INTO roles (role) VALUES ('ROLE_ADMIN') ON CONFLICT DO NOTHING;
+INSERT INTO roles (role) VALUES ('ROLE_PACIENTE') ON CONFLICT DO NOTHING;
+INSERT INTO roles (role) VALUES ('ROLE_MEDICO') ON CONFLICT DO NOTHING;
+
+-- 2. Inserir Usuários (Senha '123456' para todos)
+-- Médicos (IDs 1 a 22)
+INSERT INTO usuarios (username, password) VALUES 
+('camila.ferreira@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('lucas.santos@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('juliana.costa@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('felipe.oliveira@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('amanda.souza@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('rodrigo.pereira@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('beatriz.lima@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('gustavo.rodrigues@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('larissa.martins@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('rafael.almeida@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('fernanda.barbosa@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('diego.ribeiro@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('patricia.gomes@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('thiago.nogueira@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('carolina.mendes@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('vinicius.carvalho@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('bruna.castro@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('leonardo.araujo@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('gabriela.moreira@clinica.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1');
+
+-- Pacientes (IDs 23 a 42)
+INSERT INTO usuarios (username, password) VALUES 
+('ana.maria@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('bruno.carlos@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('carla.novaes@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('daniel.sampaio@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('elisa.costa@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('fabio.guimaraes@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('gabriela.lima@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('hugo.viana@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('isabela.matos@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('joao.almeida@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('larissa.fagundes@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('marcos.bastos@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('natalia.oliveira@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('otavio.mendes@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('paula.azevedo@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('renato.borges@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('sofia.carvalho@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('tiago.santana@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('vanessa.ramos@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1'),
+('william.neves@email.com', '$2a$10$ykhXm5.tWJL.Y1.E5.Q.O.1.1.1.1.1.1.1.1.1.1.1.1.1.1');
+
+-- 3. Vincular Roles
+select * from usuarios_roles
+
+-- Médicos (ROLE_MEDICO id=3)
+INSERT INTO usuarios_roles (idusuarios, idroles) 
+SELECT id, (SELECT id FROM roles WHERE role = 'ROLE_MEDICO') FROM usuarios WHERE username LIKE '%@clinica.com';
+
+-- Pacientes (ROLE_PACIENTE id=2)
+INSERT INTO usuarios_roles (idusuarios, idroles) 
+SELECT id, (SELECT id FROM roles WHERE role = 'ROLE_PACIENTE') FROM usuarios WHERE username LIKE '%@email.com';
+
+-- 4. Inserir Médicos (Vinculando ao usuario_id)
+INSERT INTO medicos (nome, crm, telefone, especialidade, ativo, validado, usuario_id, logradouro, numero, cidade, complemento, estado, cep) VALUES
+('Dr. Edmar Amorim dos Santos Junior', '123456789', '(71) 98789-8888', 'DERMATOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='edmar.amorim@clinica.com'), 'Rua Oscar Barroso', '400A', 'Salvador', 'Sala 201', 'BA', '40000-000'),
+('Dra. Janine Henrique', '234567890', '(71) 98799-8889', 'DERMATOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='janine.henrique@clinica.com'), 'Rua Joaquim Neves', '13F', 'Salvador', 'Sala 305', 'BA', '40000-000'),
+('Dr. Bruno Alves', '345678901', '(71) 98123-4567', 'CARDIOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='bruno.alves@clinica.com'), 'Avenida Sete de Setembro', '100', 'Salvador', 'Sala 1201', 'BA', '40060-001'),
+('Dra. Camila Ferreira', '456789012', '(71) 98234-5678', 'ORTOPEDIA', true, true, (SELECT id FROM usuarios WHERE username='camila.ferreira@clinica.com'), 'Rua da Graça', '250', 'Salvador', 'Sala 402', 'BA', '40150-050'),
+('Dr. Lucas Santos', '567890123', '(71) 98345-6789', 'GINECOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='lucas.santos@clinica.com'), 'Avenida Oceânica', '1200', 'Salvador', 'Conjunto 808', 'BA', '40170-010'),
+('Dra. Juliana Costa', '678901234', '(71) 98456-7890', 'DERMATOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='juliana.costa@clinica.com'), 'Rua Almirante Marques de Leão', '45B', 'Salvador', 'Sala 105', 'BA', '40140-230'),
+('Dr. Felipe Oliveira', '789012345', '(71) 98567-8901', 'CARDIOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='felipe.oliveira@clinica.com'), 'Avenida Tancredo Neves', '3000', 'Salvador', 'Sala 1410', 'BA', '41820-021'),
+('Dra. Amanda Souza', '890123456', '(71) 98678-9012', 'ORTOPEDIA', true, true, (SELECT id FROM usuarios WHERE username='amanda.souza@clinica.com'), 'Rua do Comércio', '512', 'Salvador', 'Sala 308', 'BA', '40015-020'),
+('Dr. Rodrigo Pereira', '901234567', '(71) 98789-0123', 'GINECOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='rodrigo.pereira@clinica.com'), 'Rua das Hortênsias', '980', 'Salvador', 'Casa 2', 'BA', '41810-010'),
+('Dra. Beatriz Lima', '112233445', '(71) 98890-1234', 'DERMATOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='beatriz.lima@clinica.com'), 'Largo do Pelourinho', '10', 'Salvador', 'Sala 01', 'BA', '40026-280'),
+('Dr. Gustavo Rodrigues', '334455667', '(71) 98901-2345', 'CARDIOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='gustavo.rodrigues@clinica.com'), 'Avenida Manoel Dias da Silva', '2150', 'Salvador', 'Sala 903', 'BA', '41900-300'),
+('Dra. Larissa Martins', '445566778', '(71) 98112-2334', 'ORTOPEDIA', true, true, (SELECT id FROM usuarios WHERE username='larissa.martins@clinica.com'), 'Rua da Paciência', '233', 'Salvador', 'Sala 210', 'BA', '40170-130'),
+('Dr. Rafael Almeida', '223344556', '(71) 98223-3445', 'GINECOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='rafael.almeida@clinica.com'), 'Rua Itabuna', '304', 'Salvador', 'Sala 503', 'BA', '41940-650'),
+('Dra. Fernanda Barbosa', '556677889', '(71) 98334-4556', 'DERMATOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='fernanda.barbosa@clinica.com'), 'Avenida Professor Magalhães Neto', '1550', 'Salvador', 'Sala 1112', 'BA', '41810-011'),
+('Dr. Diego Ribeiro', '667788990', '(71) 98445-5667', 'CARDIOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='diego.ribeiro@clinica.com'), 'Rua Chile', '15', 'Salvador', 'Sala 202', 'BA', '40020-000'),
+('Dra. Patrícia Gomes', '778899001', '(71) 98556-6778', 'ORTOPEDIA', true, true, (SELECT id FROM usuarios WHERE username='patricia.gomes@clinica.com'), 'Avenida Dom João VI', '600', 'Salvador', 'Sala 405', 'BA', '40285-001'),
+('Dr. Thiago Nogueira', '889900112', '(71) 98667-7889', 'GINECOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='thiago.nogueira@clinica.com'), 'Rua da Mouraria', '88', 'Salvador', 'Sala 104', 'BA', '40040-090'),
+('Dra. Carolina Mendes', '990011223', '(71) 98778-8990', 'DERMATOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='carolina.mendes@clinica.com'), 'Alameda dos Umbuzeiros', '55', 'Salvador', 'Sala 701', 'BA', '41810-480'),
+('Dr. Vinicius Carvalho', '100122334', '(71) 98889-9001', 'CARDIOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='vinicius.carvalho@clinica.com'), 'Rua Afonso Celso', '1120', 'Salvador', 'Sala 602', 'BA', '40150-170'),
+('Dra. Bruna Castro', '112234556', '(71) 98990-0112', 'ORTOPEDIA', true, true, (SELECT id FROM usuarios WHERE username='bruna.castro@clinica.com'), 'Avenida Garibaldi', '1800', 'Salvador', 'Sala 1005', 'BA', '40170-130'),
+('Dr. Leonardo Araujo', '123345667', '(71) 98100-1223', 'GINECOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='leonardo.araujo@clinica.com'), 'Rua Miguel Calmon', '27', 'Salvador', 'Sala 203', 'BA', '40015-010'),
+('Dra. Gabriela Moreira', '134456778', '(71) 98112-2345', 'DERMATOLOGIA', true, true, (SELECT id FROM usuarios WHERE username='gabriela.moreira@clinica.com'), 'Ladeira da Barra', '700', 'Salvador', 'Sala 506', 'BA', '40130-010');
+
+-- 5. Inserir Pacientes (Vinculando ao usuario_id)
+INSERT INTO pacientes (nome, cpf, telefone, ativo, usuario_id, logradouro, numero, cidade, complemento, estado, cep) VALUES
+('Ana Maria Ribeiro', '12345678900', '(71) 99999-8888', true, (SELECT id FROM usuarios WHERE username='ana.maria@email.com'), 'Rua das Flores', '123A', 'Salvador', 'Apto 302', 'BA', '40000-000'),
+('Bruno Carlos de Andrade', '23456789011', '(71) 98888-7777', true, (SELECT id FROM usuarios WHERE username='bruno.carlos@email.com'), 'Avenida Sete de Setembro', '1500', 'Salvador', 'Bloco B, Apto 904', 'BA', '40060-001'),
+('Carla Dias Novaes', '34567890122', '(71) 99123-4567', true, (SELECT id FROM usuarios WHERE username='carla.novaes@email.com'), 'Rua da Graça', '210', 'Salvador', 'Apto 101', 'BA', '40150-050'),
+('Daniel Moreira Sampaio', '45678901233', '(71) 98765-4321', true, (SELECT id FROM usuarios WHERE username='daniel.sampaio@email.com'), 'Avenida Oceânica', '540', 'Salvador', 'Apto 702', 'BA', '40170-010'),
+('Elisa Fernandes Costa', '56789012344', '(71) 99234-5678', true, (SELECT id FROM usuarios WHERE username='elisa.costa@email.com'), 'Rua Almirante Marques de Leão', '78B', 'Salvador', 'Casa Fundos', 'BA', '40140-230'),
+('Fábio Guimarães', '67890123455', '(71) 98111-2233', true, (SELECT id FROM usuarios WHERE username='fabio.guimaraes@email.com'), 'Avenida Tancredo Neves', '2500', 'Salvador', 'Apto 1104', 'BA', '41820-021'),
+('Gabriela Pereira Lima', '78901234566', '(71) 99333-4455', true, (SELECT id FROM usuarios WHERE username='gabriela.lima@email.com'), 'Rua do Comércio', '1020', 'Salvador', 'Sala 12', 'BA', '40015-020'),
+('Hugo Viana', '89012345677', '(71) 98222-5566', true, (SELECT id FROM usuarios WHERE username='hugo.viana@email.com'), 'Rua das Hortênsias', '45', 'Salvador', 'Casa 1', 'BA', '41810-010'),
+('Isabela Matos', '90123456788', '(71) 99111-9988', true, (SELECT id FROM usuarios WHERE username='isabela.matos@email.com'), 'Largo do Pelourinho', '19', 'Salvador', 'Apto 02', 'BA', '40026-280'),
+('João Pedro Almeida', '01234567899', '(71) 98345-6789', true, (SELECT id FROM usuarios WHERE username='joao.almeida@email.com'), 'Avenida Manoel Dias da Silva', '1300', 'Salvador', 'Apto 905', 'BA', '41900-300'),
+('Larissa Fagundes', '11223344556', '(71) 99456-7890', true, (SELECT id FROM usuarios WHERE username='larissa.fagundes@email.com'), 'Rua da Paciência', '315', 'Salvador', 'Apto 401', 'BA', '40170-130'),
+('Marcos Vinicius Bastos', '22334455667', '(71) 98567-8901', true, (SELECT id FROM usuarios WHERE username='marcos.bastos@email.com'), 'Rua Itabuna', '99', 'Salvador', 'Casa', 'BA', '41940-650'),
+('Natália Oliveira', '33445566778', '(71) 99678-9012', true, (SELECT id FROM usuarios WHERE username='natalia.oliveira@email.com'), 'Avenida Professor Magalhães Neto', '1100', 'Salvador', 'Apto 1202', 'BA', '41810-011'),
+('Otávio Mendes', '44556677889', '(71) 98789-0123', true, (SELECT id FROM usuarios WHERE username='otavio.mendes@email.com'), 'Rua Chile', '30', 'Salvador', 'Sala 05', 'BA', '40020-000'),
+('Paula Azevedo', '55667788990', '(71) 99890-1234', true, (SELECT id FROM usuarios WHERE username='paula.azevedo@email.com'), 'Avenida Dom João VI', '750', 'Salvador', 'Apto 803', 'BA', '40285-001'),
+('Renato Borges', '66778899001', '(71) 98901-2345', true, (SELECT id FROM usuarios WHERE username='renato.borges@email.com'), 'Rua da Mouraria', '122', 'Salvador', 'Apto 102', 'BA', '40040-090'),
+('Sofia Carvalho', '77889900112', '(71) 99012-3456', true, (SELECT id FROM usuarios WHERE username='sofia.carvalho@email.com'), 'Alameda dos Umbuzeiros', '101', 'Salvador', 'Casa', 'BA', '41810-480'),
+('Tiago Santana', '88990011223', '(71) 98123-9876', true, (SELECT id FROM usuarios WHERE username='tiago.santana@email.com'), 'Rua Afonso Celso', '430', 'Salvador', 'Apto 601', 'BA', '40150-170'),
+('Vanessa Ramos', '99001122334', '(71) 99234-8765', true, (SELECT id FROM usuarios WHERE username='vanessa.ramos@email.com'), 'Avenida Garibaldi', '1290', 'Salvador', 'Apto 1001', 'BA', '40170-130'),
+('William Neves', '00112233445', '(71) 98345-7654', true, (SELECT id FROM usuarios WHERE username='william.neves@email.com'), 'Ladeira da Barra', '333', 'Salvador', 'Apto 402', 'BA', '40130-010');
+
+select * from consultas
+
+-- 6. Inserir Consultas
+INSERT INTO consultas (id_paciente, id_medico, datahora, descricaoconsulta, status, cpf_paciente) VALUES
+((SELECT id FROM pacientes WHERE nome='Ana Maria Ribeiro'), (SELECT id FROM medicos WHERE nome='Dra. Janine Henrique'), '2026-01-30T14:30:00', 'Consulta de rotina', 'AGENDADA', '12345678900'),
+((SELECT id FROM pacientes WHERE nome='Bruno Carlos de Andrade'), (SELECT id FROM medicos WHERE nome='Dr. Bruno Alves'), '2026-02-01T09:00:00', 'Avaliação cardiológica inicial', 'AGENDADA', '23456789011'),
+((SELECT id FROM pacientes WHERE nome='Carla Dias Novaes'), (SELECT id FROM medicos WHERE nome='Dra. Camila Ferreira'), '2026-02-01T10:30:00', 'Dor no joelho direito', 'AGENDADA', '34567890122'),
+((SELECT id FROM pacientes WHERE nome='Daniel Moreira Sampaio'), (SELECT id FROM medicos WHERE nome='Dr. Lucas Santos'), '2026-02-02T14:00:00', 'Consulta ginecológica anual', 'AGENDADA', '45678901233'),
+((SELECT id FROM pacientes WHERE nome='Elisa Fernandes Costa'), (SELECT id FROM medicos WHERE nome='Dr. Edmar Amorim dos Santos Junior'), '2026-02-03T08:30:00', 'Avaliação dermatológica para acne', 'AGENDADA', '56789012344'),
+((SELECT id FROM pacientes WHERE nome='Fábio Guimarães'), (SELECT id FROM medicos WHERE nome='Dr. Felipe Oliveira'), '2026-02-03T16:00:00', 'Retorno cardiológico', 'AGENDADA', '67890123455'),
+((SELECT id FROM pacientes WHERE nome='Gabriela Pereira Lima'), (SELECT id FROM medicos WHERE nome='Dra. Amanda Souza'), '2026-02-04T11:00:00', 'Dor lombar recorrente', 'AGENDADA', '78901234566'),
+((SELECT id FROM pacientes WHERE nome='Hugo Viana'), (SELECT id FROM medicos WHERE nome='Dr. Rodrigo Pereira'), '2026-02-05T15:30:00', 'Exame preventivo ginecológico', 'AGENDADA', '89012345677'),
+((SELECT id FROM pacientes WHERE nome='Isabela Matos'), (SELECT id FROM medicos WHERE nome='Dra. Beatriz Lima'), '2026-02-06T09:45:00', 'Manchas na pele', 'AGENDADA', '90123456788'),
+((SELECT id FROM pacientes WHERE nome='João Pedro Almeida'), (SELECT id FROM medicos WHERE nome='Dr. Gustavo Rodrigues'), '2026-02-06T14:15:00', 'Check-up cardiológico', 'AGENDADA', '01234567899'),
+((SELECT id FROM pacientes WHERE nome='Larissa Fagundes'), (SELECT id FROM medicos WHERE nome='Dra. Larissa Martins'), '2026-02-07T10:00:00', 'Dor no ombro esquerdo', 'AGENDADA', '11223344556'),
+((SELECT id FROM pacientes WHERE nome='Marcos Vinicius Bastos'), (SELECT id FROM medicos WHERE nome='Dr. Rafael Almeida'), '2026-02-08T13:30:00', 'Consulta ginecológica de rotina', 'AGENDADA', '22334455667'),
+((SELECT id FROM pacientes WHERE nome='Natália Oliveira'), (SELECT id FROM medicos WHERE nome='Dra. Fernanda Barbosa'), '2026-02-09T08:00:00', 'Avaliação dermatológica preventiva', 'AGENDADA', '33445566778'),
+((SELECT id FROM pacientes WHERE nome='Otávio Mendes'), (SELECT id FROM medicos WHERE nome='Dr. Diego Ribeiro'), '2026-02-09T16:30:00', 'Hipertensão arterial', 'AGENDADA', '44556677889'),
+((SELECT id FROM pacientes WHERE nome='Paula Azevedo'), (SELECT id FROM medicos WHERE nome='Dra. Patrícia Gomes'), '2026-02-10T11:15:00', 'Lesão no joelho durante corrida', 'AGENDADA', '55667788990'),
+((SELECT id FROM pacientes WHERE nome='Renato Borges'), (SELECT id FROM medicos WHERE nome='Dr. Thiago Nogueira'), '2026-02-11T14:45:00', 'Planejamento familiar', 'AGENDADA', '66778899001'),
+((SELECT id FROM pacientes WHERE nome='Sofia Carvalho'), (SELECT id FROM medicos WHERE nome='Dra. Carolina Mendes'), '2026-02-12T09:30:00', 'Queda de cabelo', 'AGENDADA', '77889900112'),
+((SELECT id FROM pacientes WHERE nome='Tiago Santana'), (SELECT id FROM medicos WHERE nome='Dr. Vinicius Carvalho'), '2026-02-12T15:00:00', 'Dor no peito ao esforço', 'AGENDADA', '88990011223'),
+((SELECT id FROM pacientes WHERE nome='Vanessa Ramos'), (SELECT id FROM medicos WHERE nome='Dra. Bruna Castro'), '2026-02-13T10:30:00', 'Entorse no tornozelo', 'AGENDADA', '99001122334'),
+((SELECT id FROM pacientes WHERE nome='William Neves'), (SELECT id FROM medicos WHERE nome='Dr. Leonardo Araujo'), '2026-02-14T13:00:00', 'Consulta ginecológica de retorno', 'AGENDADA', '00112233445'),
+((SELECT id FROM pacientes WHERE nome='Ana Maria Ribeiro'), (SELECT id FROM medicos WHERE nome='Dra. Juliana Costa'), '2026-02-15T08:45:00', 'Acompanhamento dermatológico', 'AGENDADA', '12345678900');

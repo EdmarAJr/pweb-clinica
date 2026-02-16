@@ -1,0 +1,605 @@
+type: collection.insomnia.rest/5.0
+name: clinica
+meta:
+  id: wrk_d534441cf70e4c9aafea22f16c40e23d
+  created: 1761506168299
+  modified: 1761506168299
+collection:
+  - name: Req_consultas
+    meta:
+      id: fld_e68f697be5314b7699acd0fb667ecd8f
+      created: 1769365255158
+      modified: 1770033735692
+      sortKey: -1769365255158
+    children:
+      - url: http://localhost:8080/consultas/listar
+        name: Listar consultas
+        meta:
+          id: req_c63417270c1043e0a2c21ee3337aec85
+          created: 1769365259270
+          modified: 1770036755180
+          isPrivate: false
+          sortKey: -1769414195762
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZGEgY2zDrW5pY2EiLCJzdWIiOiJjYW1pbGEuYWx2ZXNAY2xpbmljYS5jb20iLCJyb2xlcyI6WyJST0xFX01FRElDTyJdLCJleHAiOjE3NzAwNDM5MzR9.0r55xhS-xKMZWEbFoEv1XVuPanpQMxFqMDJLdrF7Q-A
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/consultas/listarPorStatus
+        name: Listar consultas por status
+        meta:
+          id: req_2120a7df6e4949178b1661e8d8751bda
+          created: 1769365433022
+          modified: 1769365565993
+          isPrivate: false
+          sortKey: -1769365433022
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/consultas/1
+        name: Cancelar consulta
+        meta:
+          id: req_aad0de5dfaaa4ff6b7783f55ec723789
+          created: 1769365603875
+          modified: 1770037586845
+          isPrivate: false
+          sortKey: -1769365346146
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |+
+            {
+            	"cancelamento": "OUTROS",
+            	"descricao": "Cancelada pela médica"
+            }
+
+
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZGEgY2zDrW5pY2EiLCJzdWIiOiJjYW1pbGEuYWx2ZXNAY2xpbmljYS5jb20iLCJyb2xlcyI6WyJST0xFX01FRElDTyJdLCJleHAiOjE3NzAwNDM5MzR9.0r55xhS-xKMZWEbFoEv1XVuPanpQMxFqMDJLdrF7Q-A
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/consultas/1
+        name: Concluir consulta
+        meta:
+          id: req_0e58e3d3a5754688933b5d36d40c80d2
+          created: 1769365685713
+          modified: 1769365691960
+          isPrivate: false
+          sortKey: -1769365367865
+        method: PUT
+        body:
+          mimeType: application/json
+          text: "\n\n\n"
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/consultas/agendar
+        name: Agendar consulta
+        meta:
+          id: req_12960d84b3eb438c968152b858be1463
+          created: 1769462958502
+          modified: 1770036641587
+          isPrivate: false
+          sortKey: -1769462958502
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "idMedico": 2,
+            	"dataHora": "2026-02-09T11:30:00",
+              "descricao": "Consulta de rotina",
+              "email": "trovador@hotmail.com.br"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZGEgY2zDrW5pY2EiLCJzdWIiOiJtYXJpYS5qb2FuYUBlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1BBQ0lFTlRFIl0sImV4cCI6MTc3MDA0MDI2NX0.U9Y6XYdtJc0JqWKlVgwxun8OKGolj6V408WH4HvoKLM
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Req_medicos
+    meta:
+      id: fld_24f9fd5eecfa416292386d26ac6e22bf
+      created: 1769365316386
+      modified: 1769909191492
+      sortKey: -1769365316386
+    children:
+      - url: http://localhost:8080/medicos/listar?page=0&size=20
+        name: Listar médicos
+        meta:
+          id: req_81219186727941039f559ab3274b7ab8
+          created: 1761506190583
+          modified: 1770077396048
+          isPrivate: false
+          sortKey: -1769365328822
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZGEgY2zDrW5pY2EiLCJzdWIiOiJhZG1pbkBjbGluaWNhLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzcwMDgzMjk1fQ.TyvfeDayjJG-Klh8GWMcIESCwDRCKvzEesBTyv78FWE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/medicos/register
+        name: Cadastrar médico
+        meta:
+          id: req_fdabdd7c8fac4ca38afa44fa6cc37775
+          created: 1761506260624
+          modified: 1770033753147
+          isPrivate: false
+          sortKey: -1769365328672
+        method: POST
+        body:
+          mimeType: application/json
+          text: |+
+            { 
+                "nome": "Dr. Camila Alves",
+                "username": "camila.alves@clinica.com",
+            		"password": "123456",
+                "crm": 1264270,
+                "telefone": "(71) 98123-4567",
+                "especialidade": "DERMATOLOGIA",
+                "endereco": {
+                  "logradouro": "Avenida Sete de Setembro'",
+                  "numero": "100A",
+            			"bairro": "Centro",
+            			"complemento": "Sala 1201",
+                  "cidade": "Salvador",
+                  "estado": "BA",
+                  "cep": "40060-001"
+                }
+              }
+
+
+
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/medicos/9
+        name: Atualizar médico
+        meta:
+          id: req_f9a0427aa0144e5f95662beef539d5e9
+          created: 1761514557666
+          modified: 1770037661933
+          isPrivate: false
+          sortKey: -1769365328647
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |+
+            { 
+                "nome": "Dr. Edmar Junior",
+                "endereco": {
+                  "rua": "Rua Almirante Alves Câmara",
+                  "numero": "151",
+            			"complemento": "Casa fundo",
+                  "cidade": "Salvador",
+                  "estado": "BA",
+                  "cep": "40240-005"
+                },
+            	"telefone": "(71) 98234-5678"
+              }
+
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZGEgY2zDrW5pY2EiLCJzdWIiOiJtYXJpYS5qb2FuYUBlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1BBQ0lFTlRFIl0sImV4cCI6MTc3MDA0NDgyN30.L9XVfZfz3kCllnhGIFj9TsiEuj0C884lW5aWwobJPfA
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/medicos/buscarPorNome?nome=edmar
+        name: Listar médicos por nomes
+        meta:
+          id: req_91214871514f480a9034b44b6300670f
+          created: 1761518939209
+          modified: 1770041159285
+          isPrivate: false
+          sortKey: -1769365328722
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZGEgY2zDrW5pY2EiLCJzdWIiOiJtYXJpYS5qb2FuYUBlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1BBQ0lFTlRFIl0sImV4cCI6MTc3MDA0NDgyN30.L9XVfZfz3kCllnhGIFj9TsiEuj0C884lW5aWwobJPfA
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/medicos/1
+        name: Deletar médico
+        meta:
+          id: req_62780ed8153f4395bb16c47c3b621cd6
+          created: 1761519851300
+          modified: 1769365343481
+          isPrivate: false
+          sortKey: -1769365328522
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: "\n\n\n"
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Req_pacientes
+    meta:
+      id: fld_f5b86a0e3f1b4567ab0d46e0e28b3949
+      created: 1769365356537
+      modified: 1770073793759
+      sortKey: -1769365356537
+    children:
+      - url: http://localhost:8080/pacientes/listar?page=0&size=20
+        name: Listar pacientes
+        meta:
+          id: req_7d787b3d994c4f798208a1f23c957674
+          created: 1761527917738
+          modified: 1770073800780
+          isPrivate: false
+          sortKey: -1769365390829
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZGEgY2zDrW5pY2EiLCJzdWIiOiJhZG1pbkBjbGluaWNhLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzcwMDgwOTU0fQ.RvVu3Gux3HEdxjKyM7JOq7Dcwz9jsPr2GL5zbM2j2OM
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/pacientes/register
+        name: Cadastrar paciente
+        meta:
+          id: req_3a6e498db4a14256b493a38dc6bda3a4
+          created: 1761527965441
+          modified: 1769908994096
+          isPrivate: false
+          sortKey: -1769365390729
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "nome": "Maria Joana Linhares",
+              "username": "maria.joana@email.com",
+            	"password": "123465",
+              "cpf": "67890995588",
+              "endereco": {
+                "logradouro": "Rua das Rosas",
+                "numero": "126A",
+            		"bairro": "Centro",
+            		"complemento": "Casa 1º Andar",
+                "cidade": "Salvador",
+                "estado": "BA",
+                "cep": "40000-001"
+              },
+              "telefone": "(71) 99999-8877"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/pacientes/2
+        name: Atualizar paciente
+        meta:
+          id: req_0c04c444c6544ddaa4c630c909176da2
+          created: 1761528408325
+          modified: 1770033738032
+          isPrivate: false
+          sortKey: -1769365390629
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |+
+            	{
+            		"nome": "Ana Maria Ribeiro Vasconcelos",
+            		"endereco": {
+            			"rua": "Rua das Flores",
+            			"numero": "123A",
+            			"cidade": "Salvador",
+            			"estado": "BA",
+            			"cep": "40000-000"
+            		},
+            		"telefone": "(71) 99999-8888"
+            	}
+
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/pacientes/buscarPorNome?nome=ana&pilar
+        name: Listar pacientes por nomes
+        meta:
+          id: req_0e48ff9fdc7f4a78be8524712a9bba51
+          created: 1761528463728
+          modified: 1769862091018
+          isPrivate: false
+          sortKey: -1769365390779
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZGUgQWdlbmRhIiwic3ViIjoiYWRtaW5AY2xpbmljYS5jb20iLCJleHAiOjE4NDE4NjE5ODN9.oWtrghLAQ-jR-ybNw9aIKGMk3VFLfOf91bURB-JTkVc
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/pacientes/1
+        name: Deletar paciente
+        meta:
+          id: req_5810507b5d2f4afaa08705367b699995
+          created: 1761528518080
+          modified: 1769737935713
+          isPrivate: false
+          sortKey: -1769365390429
+        method: DELETE
+        body:
+          mimeType: application/json
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZGUgQWdlbmRhIiwic3ViIjoiYW5hLnBpbGFyZUBlbWFpbC5jb20iLCJleHAiOjE4NDE3Mzc4NzN9.idpIKAVjlbSs03-TBt3CS98SkiFaz7Vw-LiWbrVCvzM
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/pacientes/listarConsultas
+        name: Listar consultas por  usuário
+        meta:
+          id: req_90d1399c307c42d9b084f9fbd0fd4ff1
+          created: 1769894363407
+          modified: 1769896536253
+          isPrivate: false
+          sortKey: -1769365390754
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZGUgQWdlbmRhIiwic3ViIjoibWFyaWEuam9hbmFAZW1haWwuY29tIiwiZXhwIjoxODQxODk2MzI3fQ._xLAUXgOYWAmQZpR81oCw1hmuw6wKaU4gFbm0iVucZU
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Req_usuario
+    meta:
+      id: fld_b7ddc1bb88904c81a8aa3964f093de2c
+      created: 1769366133290
+      modified: 1769366149432
+      sortKey: -1769366133290
+    children:
+      - url: http://localhost:8080/auth/register
+        name: Cadastrar usuario
+        meta:
+          id: req_06f26bd4509d4a7d9b59946a76fd1dfa
+          created: 1769365778146
+          modified: 1769699090254
+          isPrivate: false
+          sortKey: -1769366140374
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"username": "admin@clinica.com",
+            	"password": "admin123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/auth/login
+        name: Login
+        meta:
+          id: req_00a01fc9193e4238925758abcc4920e8
+          created: 1769366150778
+          modified: 1770076031269
+          isPrivate: false
+          sortKey: -1769366140474
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"username": "admin@clinica.com",
+            	"password": "admin123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/medicos/4/ativar
+        name: Validar Médico
+        meta:
+          id: req_f5640c057d9043a5a6124e3a218ebc73
+          created: 1769865602290
+          modified: 1769976264720
+          isPrivate: false
+          sortKey: -1769865602290
+        method: PUT
+        body:
+          mimeType: application/json
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZGEgY2zDrW5pY2EiLCJzdWIiOiJhZG1pbkBjbGluaWNhLmNvbSIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzY5OTgzNDQ4fQ.LDEWzUtDy21uq3jGgLSArULpNKdlR2hFH8vYF6hAufk
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_ddae59a385eb2a47e2d81a0188ebc66002993bf9
+    created: 1761506168304
+    modified: 1761506168304
+environments:
+  name: Base Environment
+  meta:
+    id: env_ddae59a385eb2a47e2d81a0188ebc66002993bf9
+    created: 1761506168302
+    modified: 1761506168302
+    isPrivate: false

@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    # Use the image that includes the management plugin
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      # Default AMQP port for client connections
+      - "5672:5672"
+      # Management plugin UI and API port
+      - "15672:15672"
+    environment:
+      # Optional: Define default username and password (default is guest/guest)
+      RABBITMQ_DEFAULT_USER: myuser
+      RABBITMQ_DEFAULT_PASS: mypassword
+      # Optional: Define default virtual host
+      RABBITMQ_DEFAULT_VHOST: /
+    volumes:
+      # Optional: Persist data to a local volume
+      - rabbitmq_data:/var/lib/rabbitmq/mnesia
+      # Optional: Persist logs to a local volume
+      - rabbitmq_log:/var/log/rabbitmq
+
+# Define the named volumes
+volumes:
+  rabbitmq_data:
+  rabbitmq_log:
