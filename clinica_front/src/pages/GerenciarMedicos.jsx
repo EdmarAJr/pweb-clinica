@@ -57,9 +57,9 @@ const GerenciarMedicos = () => {
 
       <div className="card shadow-sm border-0">
         <div className="card-body p-0">
-          <div className="table-responsive">
+          <div className="table-responsive" style={{ maxHeight: '65vh', overflowY: 'auto' }}>
             <table className="table table-hover mb-0">
-              <thead className="table-light">
+              <thead className="table-light" style={{ position: 'sticky', top: 0, zIndex: 1 }}>
                 <tr>
                   <th>Nome</th>
                   <th>E-mail</th>

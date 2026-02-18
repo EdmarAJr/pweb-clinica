@@ -12,10 +12,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm mb-4">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm mb-0">
       <div className="container">
-        <Link className="navbar-brand fw-bold" to="/">
+        <Link className="navbar-brand fw-bold" to="/home">
           <i className="bi bi-heart-pulse-fill me-2"></i>
+          <img src="/clinica.svg" alt="Clínica Salvador" className="mb-0" style={{ width: '50px' }} />
           Clínica Salvador
         </Link>
         

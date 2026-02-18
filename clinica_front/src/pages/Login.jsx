@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -6,15 +6,21 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { login } = useContext(AuthContext);
+  const { login, signed } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (signed) {
+      navigate("/home");
+    }
+  }, [signed, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const success = await login(email, senha);
     if (success) {
-      navigate("/consultas");
+      navigate("/home");
     } else {
       alert("Credenciais inválidas!");
     }
@@ -23,7 +29,8 @@ const Login = () => {
   return (
     <div className="container d-flex align-items-center justify-content-center vh-100">
       <div className="card shadow-lg p-4" style={{ width: "100%", maxWidth: "400px", borderRadius: "15px" }}>
-        <div className="text-center mb-4">
+        <div className="text-center mb-0">
+          <img src="/clinica.svg" alt="Clínica Salvador" className="mb-1" style={{ width: '150px' }} />
           <h2 className="fw-bold text-primary">Clínica Salvador</h2>
           <p className="text-muted">Acesse sua conta</p>
         </div>

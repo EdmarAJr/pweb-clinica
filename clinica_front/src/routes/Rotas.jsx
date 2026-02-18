@@ -1,42 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
-import PrivateRoute from "./components/PrivateRoute";
-import Navbar from "./components/Navbar";
-import Login from "./pages/Login";  
-import Consultas from "./pages/Consultas";
-import CadastroUsuario from "./pages/CadastroUsuario";
-import GerenciarMedicos from "./pages/GerenciarMedicos";
-import GerenciarPacientes from "./pages/GerenciarPacientes";
-import EditarMedico from "./pages/EditarMedico";
-import EditarPaciente from "./pages/EditarPaciente";
+import { AuthProvider } from "../context/AuthContext";
+import PrivateRoute from "../components/PrivateRoute";
+import Layout from "../components/Layout";
+import Home from "../pages/Home";
+import Login from "../pages/Login";  
+import Consultas from "../pages/Consultas";
+import CadastroUsuario from "../pages/CadastroUsuario";
+import GerenciarMedicos from "../pages/GerenciarMedicos";
+import GerenciarPacientes from "../pages/GerenciarPacientes";
+import EditarMedico from "../pages/EditarMedico";
+import EditarPaciente from "../pages/EditarPaciente";
 
-// Home estilizada com Bootstrap
-const Home = () => (
-  <div className="container mt-5">
-    <div className="p-5 mb-4 bg-light rounded-3 shadow-sm text-center">
-      <div className="container-fluid py-5">
-        <h1 className="display-5 fw-bold text-primary">Bem-vindo à Clínica Salvador</h1>
-        <p className="col-md-8 fs-4 mx-auto text-muted">
-          Sistema de gestão de consultas e prontuários médicos.
-        </p>
-        <hr className="my-4" />
-        <p>Acesse o menu "Minhas Consultas" para gerenciar seus agendamentos.</p>
-      </div>
-    </div>
-  </div>
-);
 
-// Layout com Navbar e container para o conteúdo
-const Layout = ({ children }) => (
-  <div className="min-vh-100 bg-light">
-    <Navbar />
-    <main>
-      {children}
-    </main>
-  </div>
-);
 
-function App() {
+
+function Rotas() {
   return (
     <BrowserRouter>
       <AuthProvider>
@@ -46,7 +24,7 @@ function App() {
           <Route path="/cadastro" element={<CadastroUsuario />} />
           
           {/* Rotas Privadas */}
-          <Route path="/" element={
+          <Route path="/home" element={
             <PrivateRoute>
               <Layout><Home /></Layout>
             </PrivateRoute>
@@ -98,4 +76,4 @@ function App() {
   );
 }
 
-export default App;
+export default Rotas;
